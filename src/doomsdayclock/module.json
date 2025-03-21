@@ -1,0 +1,41 @@
+{
+  "id": "doomsdayclock",
+  "title": "Doomsday Clock",
+  "description": "A Doomsday-Clock",
+  "authors": [
+    {
+      "name": "muwak",
+      "flags": {}
+    }
+  ],
+  "url": "https://github.com/Muwak77/doomsdayclock/",
+  "version": "0.0.1",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12"
+  },
+  "socket": true,
+  "esmodules": [
+    "scripts/index.js"
+  ],
+  "styles": [
+    "css/doomsdayclock.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    }
+  ],
+  "dependencies": [
+    {
+        "name": "_chatcommands",
+        "type": "module",
+        "manifest": "https://github.com/League-of-Foundry-Developers/Chat-Commands-Lib/releases/download/1.2.0/module.json"
+    }
+],
+  "manifest": "https://github.com/Muwak77/doomsdayclock/releases/download/current/module.json",
+  "download": "https://github.com/Muwak77/doomsdayclock/releases/download/current/doomsdayclock.zip"
+}
