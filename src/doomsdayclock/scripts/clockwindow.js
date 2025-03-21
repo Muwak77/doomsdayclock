@@ -28,7 +28,7 @@ export class ClockWindow extends Application {
         return ClockWindow._instance;
     }
 
-    async setTime(currentHour,currentMinute) {
+    async setTime(currentHour, currentMinute) {
         // Implementiere hier die Logik zur Zeitänderung
         let currentTime = `${currentHour}:${currentMinute}`;
 
@@ -49,7 +49,7 @@ export class ClockWindow extends Application {
             { time: "20:19", number: 11, description: "Die Schlafende Stadt", world: "Die Schlafende Stadt" },
             { time: "22:10", number: 12, description: "Spiegelwelt", world: "Spiegelwelt" }
         ];
-        
+
         // Suche nach der letzten überschrittenen Zeitmarke
         let lastTimeObject = timeData.reverse().find(item => {
             let [hour, minute] = item.time.split(":").map(Number);
@@ -58,35 +58,37 @@ export class ClockWindow extends Application {
 
         if (lastTimeObject && lastTimeObject.time !== this.lastTrigger) {
             this.lastTrigger = lastTimeObject.time;
-            
-            if (game.user.isGM) {
-                ui.notifications.info(`${lastTimeObject.time} (${lastTimeObject.number}, ${lastTimeObject.description})`, { permanent: true });            
-            console.log(`Die passende Zeit wurde gefunden: ${JSON.stringify(lastTimeObject)}`);
-            const playlistName = "To whom the Bell tolls";
-            const soundName = "BELL";
 
-            let playlist = game.playlists.contents.find(p => p.name === playlistName);
-            if (playlist) {
-                let sound = playlist.sounds.find(s => s.name === soundName);
-                if (sound) {
-                    await playlist.playSound(sound);
+            if (game.user.isGM) {
+                ui.notifications.info(`${lastTimeObject.time} (${lastTimeObject.description})`, { timeout: 10000 });
+
+                console.log(`Die passende Zeit wurde gefunden: ${JSON.stringify(lastTimeObject)}`);
+                const playlistName = "To whom the Bell tolls";
+                const soundName = "BELL";
+
+                /*
+                if (playlist) {
+                    let sound = playlist.sounds.find(s => s.name === soundName);
+                    if (sound) {
+                        await playlist.playSound(sound);
+                    } else {
+                        ui.notifications.error(`Sound '${soundName}' nicht gefunden!`);
+                    }
                 } else {
-                    ui.notifications.error(`Sound '${soundName}' nicht gefunden!`);
+                    ui.notifications.error(`Playlist '${playlistName}' nicht gefunden!`);
                 }
-            } else {
-                ui.notifications.error(`Playlist '${playlistName}' nicht gefunden!`);
+                    */
             }
-        }
             const element = this.element.find(".doomsdayclock_hand")[0];
 
             if (element) {
-                let base=360/13;
-                let pos=lastTimeObject.number;
+                let base = 360 / 13;
+                let pos = lastTimeObject.number;
 
-                element.style.transform = `rotate(${ pos*base}deg)`; // Beispielrotation basierend auf Zeit
+                element.style.transform = `rotate(${pos * base}deg)`; // Beispielrotation basierend auf Zeit
             }
-    
-        }     
+
+        }
 
     }
 
@@ -96,12 +98,12 @@ export class ClockWindow extends Application {
 
     // Öffnet das Fenster
     async openWindow() {
-        
+
         await this.render(true); // Verwendet die Singleton-Instanz
-        this.lastTrigger="00:00";
+        this.lastTrigger = "00:00";
         setTimeout(() => {
-            this.setTime(SimpleCalendar.api.currentDateTime().hour,SimpleCalendar.api.currentDateTime().minute);    
+            this.setTime(SimpleCalendar.api.currentDateTime().hour, SimpleCalendar.api.currentDateTime().minute);
         }, 100);
-        
+
     }
 }
