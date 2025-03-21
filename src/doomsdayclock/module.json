@@ -16,7 +16,7 @@
   },
   "socket": true,
   "esmodules": [
-    "scripts/index.js"
+    "scripts/index.js"    
   ],
   "styles": [
     "css/doomsdayclock.css"
@@ -34,6 +34,11 @@
         "name": "_chatcommands",
         "type": "module",
         "manifest": "https://github.com/League-of-Foundry-Developers/Chat-Commands-Lib/releases/download/1.2.0/module.json"
+    },
+    {
+        "name": "socketlib",
+        "type": "module",
+        "manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json"
     }
 ],
   "manifest": "https://github.com/Muwak77/doomsdayclock/releases/download/current/module.json",
