@@ -32,23 +32,24 @@ export class ClockWindow extends Application {
         // Implementiere hier die Logik zur Zeitänderung
         let currentTime = `${currentHour}:${currentMinute}`;
 
+
+
         const timeData = [
-            { time: "0:00", number: 0, description: "Die Schlafende Stadt ", world: "Die Schlafende Stadt " },
-            { time: "1:51", number: 1, description: "Spiegellabyrinth", world: "Spiegelwelt" },
-            { time: "3:42", number: 2, description: "Eingangsbereich", world: "Der Ewige Jahrmarkt" },
-            { time: "5:33", number: 3, description: "Das Stille Nichts", world: "Das Stille Nichts" },
-            { time: "7:24", number: 4, description: "Das Uhrwerk-Reich", world: "Das Uhrwerk-Reich" },
-            { time: "9:14", number: 5, description: "Die Albtraumstadt", world: "Die Albtraumstadt" },
-            { time: "11:50", number: 6, description: "Die Fleischgrube", world: "Die Fleischgrube" },
-            { time: "12:56", number: 7, description: "Das Gebrochene Himmelszelt", world: "Das Gebrochene Himmelszelt" },
-            { time: "14:47", number: 8, description: "Die Versunkene Welt", world: "Die Versunkene Welt" },
-            { time: "16:37", number: 9, description: "Der Staubhort", world: "Der Staubhort" },
-            { time: "18:28", number: 10, description: "Die Ewige Dämmerung", world: "Die Ewige Dämmerung" },
-            { time: "20:19", number: 11, description: "Die Knochenwüste", world: "Die Knochenwüste" },
-            { time: "22:10", number: 12, description: "Der Karneval der Haut", world: "Der Karneval der Haut" }
+            { time: "0:00", number: 0, description: "Der Ewige Jahrmarkt", world: "Der Ewige Jahrmarkt" },
+            { time: "1:51", number: 1, description: "Das Stille Nichts", world: "Das Stille Nichts" },
+            { time: "3:42", number: 2, description: "Das Uhrwerk-Reich", world: "Das Uhrwerk-Reich" },
+            { time: "5:33", number: 3, description: "Die Albtraumstadt", world: "Die Albtraumstadt" },
+            { time: "7:24", number: 4, description: "Die Fleischgrube", world: "Die Fleischgrube" },
+            { time: "9:14", number: 5, description: "Das Gebrochene Himmelszelt", world: "Das Gebrochene Himmelszelt" },
+            { time: "11:50", number: 6, description: "Die Versunkene Welt", world: "Die Versunkene Welt" },
+            { time: "12:56", number: 7, description: "Der Staubhort", world: "Der Staubhort" },
+            { time: "14:47", number: 8, description: "Die Ewige Dämmerung", world: "Die Ewige Dämmerung" },
+            { time: "16:37", number: 9, description: "Die Knochenwüste", world: "Die Knochenwüste" },
+            { time: "18:28", number: 10, description: "Der Karneval der Haut", world: "Der Karneval der Haut" },
+            { time: "20:19", number: 11, description: "Die Schlafende Stadt", world: "Die Schlafende Stadt" },
+            { time: "22:10", number: 12, description: "Spiegelwelt", world: "Spiegelwelt" }
         ];
         
-
         // Suche nach der letzten überschrittenen Zeitmarke
         let lastTimeObject = timeData.reverse().find(item => {
             let [hour, minute] = item.time.split(":").map(Number);
